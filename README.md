@@ -5,10 +5,11 @@
 
 This project is a full-stack application for real-time system health monitoring and predictive failure analysis. It collects performance metrics from multiple client devices, uses an ML model to forecast issues, and presents the data in a live web dashboard.
 
-![Dashboard Preview](https://i.imgur.com/your-screenshot-url.png) 
+[Dashboard Preview]<img width="1823" height="897" alt="Screenshot 2025-09-20 121825" src="https://github.com/user-attachments/assets/547dd05a-928c-4cbb-ab76-6bc69e2bcf6e" />
+ 
 ---
 
-### ## Core Features
+###  Core Features
 
 | Feature                  | Description                                                                                                                                |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -19,7 +20,7 @@ This project is a full-stack application for real-time system health monitoring 
 
 ---
 
-### ## Technology Overview
+### Technology Overview
 
 This project integrates several key technologies:
 
@@ -30,7 +31,7 @@ This project integrates several key technologies:
 
 ---
 
-### ## 🚀 Quickstart
+###  Quickstart
 
 For experienced users, get up and running with these commands from the project root.
 
