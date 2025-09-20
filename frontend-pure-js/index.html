@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Maintenance Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="sidebar">
+            <h1 class="sidebar-title">Device Monitor</h1>
+            <button id="home-button" class="sidebar-button">
+                <span>Home</span>
+                <span id="device-count" class="device-count">0</span>
+            </button>
+            <div id="device-list" class="device-list">
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="home-view" class="view active">
+                <div class="welcome-card">
+                    <h2>Welcome Back!</h2>
+                    <p>Click a category below to see a list of devices.</p>
+
+                    <div class="home-stats-grid">
+                        <div class="stat-item healthy-card">
+                            <p class="stat-label">Healthy</p>
+                            <p id="healthy-count" class="stat-value">0</p>
+                        </div>
+                        <div class="stat-item warning-card">
+                            <p class="stat-label">Warning</p>
+                            <p id="warning-count" class="stat-value">0</p>
+                        </div>
+                        <div class="stat-item critical-card">
+                            <p class="stat-label">Critical</p>
+                            <p id="critical-count" class="stat-value">0</p>
+                        </div>
+                    </div>
+
+                    <div class="home-chart-container">
+                        <canvas id="health-donut-chart"></canvas>
+                    </div>
+
+                    <p class="welcome-footer">You can also share files with any connected device.</p>
+                    <button id="go-to-files-button" class="main-button">
+                        <span class="button-icon">📂</span> Go to File Sharing
+                    </button>
+                </div>
+            </div>
+
+            <div id="file-sharing-view" class="view">
+                <div class="file-sharing-card">
+                    <h2>Share a File</h2>
+                    <p>Select a target device and choose a file to send.</p>
+                    <div class="form-group">
+                        <label for="device-select">Target Device:</label>
+                        <select id="device-select" class="custom-select">
+                            <option value="">-- Loading devices --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-input">File:</label>
+                        <input type="file" id="file-input" class="custom-file-input">
+                    </div>
+                    <button id="upload-button" class="main-button">Send File</button>
+                    <p id="upload-status"></p>
+                </div>
+            </div>
+
+            <div id="device-view" class="view">
+                <div class="device-details-card">
+                    <h2 id="device-name"></h2>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <p>Status</p>
+                            <span id="device-status" class="status-badge"></span>
+                        </div>
+                        <div class="detail-item">
+                            <p>Failure Probability</p>
+                            <p id="device-risk" class="detail-value"></p>
+                        </div>
+                        <div class="detail-item">
+                            <p>CPU Usage</p>
+                            <p id="device-cpu" class="detail-value"></p>
+                        </div>
+                        <div class="detail-item">
+                            <p>Memory Usage</p>
+                            <p id="device-memory" class="detail-value"></p>
+                        </div>
+                        <div class="detail-item">
+                            <p>Disk Usage</p>
+                            <p id="device-disk" class="detail-value"></p>
+                        </div>
+                        <div class="detail-item">
+                            <p>Network I/O</p>
+                            <p id="device-netio" class="detail-value"></p>
+                        </div>
+                    </div>
+
+                    <div class="charts-container">
+                        <div class="chart-card">
+                            <h3 class="chart-title">CPU/Memory Usage History</h3>
+                            <div class="time-range-buttons">
+                                <button class="time-range-button active" data-minutes="10">10m</button>
+                                <button class="time-range-button" data-minutes="60">1h</button>
+                                <button class="time-range-button" data-minutes="720">12h</button>
+                            </div>
+                            <canvas id="usage-chart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3 class="chart-title">Failure Probability History</h3>
+                             <div class="time-range-buttons">
+                                <button class="time-range-button active" data-minutes="10">10m</button>
+                                <button class="time-range-button" data-minutes="60">1h</button>
+                                <button class="time-range-button" data-minutes="720">12h</button>
+                            </div>
+                            <canvas id="risk-line-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="device-list-modal" class="modal">
+            <span class="modal-close" id="modal-close-button">&times;</span>
+            <h3 id="modal-title">Devices</h3>
+            <div id="modal-device-list" class="modal-device-list">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

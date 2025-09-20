@@ -1,0 +1,43 @@
+# Virtual Environments
+.venv/
+venv/
+env/
+.env/
+
+# Python build artifacts and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+*.egg-info/
+
+# C extensions
+*.so
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# User-uploaded files (from your project)
+file_uploads/
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+
+# Environment variables (if you use them)
+.env
+.env.*
+*.env
+
+# Operating System generated files
+# Mac
+.DS_Store
+# Windows
+Thumbs.db
+
+# Unused project folders
+backend/frontend/
